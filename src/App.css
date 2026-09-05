@@ -1,0 +1,448 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* ---------- Control panel (left) ---------- */
+
+.control-panel {
+  overflow-y: auto;
+  height: 100%;
+  padding: 1.25rem 1.25rem 3rem;
+  background: var(--toshi-panel);
+  border-right: 1px solid var(--toshi-border);
+}
+
+.control-panel__brand {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.control-panel__brand-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: var(--toshi-cream);
+}
+
+.control-panel__brand-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--toshi-gold);
+}
+
+.section {
+  border-top: 1px solid var(--toshi-border);
+  padding: 0.9rem 0;
+}
+
+.section-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--toshi-cream);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.2rem 0;
+}
+
+.section-chevron {
+  color: var(--toshi-gold);
+  font-size: 1rem;
+}
+
+.section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+/* Form primitives */
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.text-field__label {
+  color: var(--toshi-cream-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.text-field input[type='text'],
+.text-field select,
+input[type='text'] {
+  background: var(--toshi-panel-raised);
+  border: 1px solid var(--toshi-border);
+  color: var(--toshi-cream);
+  padding: 0.45rem 0.6rem;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+}
+
+.text-field input:focus,
+.text-field select:focus {
+  outline: 1px solid var(--toshi-gold);
+}
+
+.slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+}
+
+.slider-row--disabled {
+  opacity: 0.4;
+}
+
+.slider-row__label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--toshi-cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+}
+
+.slider-row__value {
+  color: var(--toshi-gold);
+}
+
+input[type='range'] {
+  accent-color: var(--toshi-gold);
+  width: 100%;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--toshi-cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.toggle-row input {
+  accent-color: var(--toshi-gold);
+}
+
+.btn {
+  background: var(--toshi-panel-raised);
+  border: 1px solid var(--toshi-border);
+  color: var(--toshi-cream);
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--toshi-gold);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--toshi-dark-red);
+  border-color: var(--toshi-dark-red);
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.65rem 0.9rem;
+}
+
+.export-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.export-actions .btn--primary {
+  flex: 1;
+  width: auto;
+}
+
+.export-actions .btn:not(.btn--primary) {
+  margin-top: 0.5rem;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--toshi-gold);
+  border-color: var(--toshi-gold);
+  color: var(--toshi-black);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--toshi-cream-dim);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0.15rem 0.3rem;
+}
+
+.btn-icon:hover {
+  color: var(--toshi-gold);
+}
+
+.upload-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upload-field__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.upload-field__meta {
+  font-size: 0.72rem;
+  color: var(--toshi-cream-dim);
+  overflow-wrap: anywhere;
+}
+
+.field-error {
+  color: #e07a5f;
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+.field-hint {
+  font-size: 0.7rem;
+  color: var(--toshi-cream-dim);
+  margin: 0.3rem 0 0;
+}
+
+.proxy-status {
+  background: var(--toshi-panel-raised);
+  border: 1px solid var(--toshi-border);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.proxy-status__line {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--toshi-cream-dim);
+}
+
+.proxy-status__value {
+  color: var(--toshi-cream);
+}
+
+.proxy-status__line--pending {
+  color: var(--toshi-gold);
+}
+
+.proxy-status__line--ready {
+  color: var(--toshi-cream-dim);
+}
+
+.proxy-status__line--error {
+  color: #e07a5f;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.proxy-status__retry {
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  border: 1px solid var(--toshi-border);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}
+
+.proxy-status__retry:hover {
+  border-color: var(--toshi-gold);
+}
+
+.preset-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.preset-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.preset-chip {
+  flex: 1;
+  text-align: left;
+  background: var(--toshi-panel-raised);
+  border: 1px solid var(--toshi-border);
+  color: var(--toshi-cream-dim);
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.preset-chip--active {
+  border-color: var(--toshi-gold);
+  color: var(--toshi-gold);
+}
+
+.preset-list__actions {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.export-progress {
+  margin-top: 0.75rem;
+}
+
+.export-progress__bar {
+  height: 6px;
+  background: var(--toshi-panel-raised);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--toshi-border);
+}
+
+.export-progress__fill {
+  height: 100%;
+  background: var(--toshi-gold);
+  transition: width 0.15s ease-out;
+}
+
+.export-progress__label {
+  font-size: 0.7rem;
+  color: var(--toshi-cream-dim);
+  margin: 0.35rem 0 0;
+}
+
+/* ---------- Preview column (right) ---------- */
+
+.preview-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  gap: 1rem;
+  background: var(--toshi-black);
+  overflow: auto;
+}
+
+.preview-quality {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.preview-quality__label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--toshi-cream-dim);
+}
+
+.preview-quality__options {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.preview-quality__btn {
+  background: var(--toshi-panel-raised);
+  border: 1px solid var(--toshi-border);
+  color: var(--toshi-cream-dim);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.preview-quality__btn:hover {
+  border-color: var(--toshi-gold);
+}
+
+.preview-quality__btn--active {
+  border-color: var(--toshi-gold);
+  color: var(--toshi-gold);
+}
+
+.preview-canvas-wrap {
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--toshi-border);
+}
+
+.preview-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.timeline {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.timeline__time {
+  font-size: 0.75rem;
+  color: var(--toshi-cream-dim);
+  letter-spacing: 0.05em;
+  margin-left: auto;
+}
+
+.timeline__scrub {
+  width: 100%;
+}
